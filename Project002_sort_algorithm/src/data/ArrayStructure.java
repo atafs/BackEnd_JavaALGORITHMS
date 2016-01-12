@@ -6,6 +6,9 @@ public class ArrayStructure {
 	private int[] theArray = new int[50];
 	private int arraySize = 10;
 	
+	//CONSTRUCTOR
+	public ArrayStructure() {}
+	
 	/** Procedure: generate random array */
 	public void generateRandomArray() {
 		//LOOP
@@ -16,18 +19,10 @@ public class ArrayStructure {
 	
 	/** Procedure: print the array */
 	public void printArray() {
-		System.err.println("--------------------");
+		System.err.println("-----------");
 		for (int i = 0; i < arraySize; i++) {
 			System.out.print("| " + i + " | ");
 			System.out.println(theArray[i] + " |");
 		}
-	}
-	
-	//MAIN
-	public static void main(String[] args) {
-		//INSTANTIATE
-		ArrayStructure newArray = new ArrayStructure();
-		newArray.generateRandomArray();
-		newArray.printArray();
 	}
 }
