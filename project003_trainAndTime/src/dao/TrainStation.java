@@ -10,7 +10,6 @@ public class TrainStation {
 	
 	//CONSTRUCTOR
 	public TrainStation(char name, int distanceInMinutes) {
-		super();
 		this.name = name;
 		this.distanceInMinutes = distanceInMinutes;
 	}

@@ -1,7 +1,6 @@
 package test;
 
 import static org.junit.Assert.*;
-import main.Main;
 import manage.TimeBetweenStation;
 
 import org.junit.Test;
