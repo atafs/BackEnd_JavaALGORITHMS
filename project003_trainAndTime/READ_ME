@@ -1,0 +1,25 @@
+// #######################################################
+Thanks for the opportunity to make this exercise.
+
+Features:
+- I have a dao class to save name and distance in minutes .
+- From a fixed point (used as reference) to the train station.
+
+- I have enums to introduces delay is certain routes.
+(when analysing the data, identified values from certain that didn´t mach).
+(so I introduced them as delay (like if the train passes in a slower passage).
+(or the opposite, in a faster pace).
+
+- I have a main class in order to run my application.
+
+- I have a class that will manage routes.
+(where from and where to is a train going. And makes the necessary calculation).
+
+- Finally a class to make JUnit test
+(assure quality of code in terms of logic (basic test)
+(with more time and if necessary, could add a wider variety of tests)
+
+// ##########################################################
+
+Kind regards
+Am
