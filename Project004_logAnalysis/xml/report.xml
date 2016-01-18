@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
   <rendering>
+    <!--Document id-->
     <document>//still to implement1</document>
     <uid>1286373733634-5423</uid>
     <uid>1286373785873-3536</uid>
@@ -835,6 +836,7 @@
     <uid>1286467019523-5051</uid>
   </rendering>
   <rendering>
+    <!--Document id-->
     <document>//still to implement2</document>
     <start>2010-10-06 09:02:13,631</start>
     <start>2010-10-06 09:02:13,631</start>

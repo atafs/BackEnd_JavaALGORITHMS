@@ -2,6 +2,7 @@ package parser.jdom2;
 
 import java.util.List;
 
+import org.jdom2.Comment;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
@@ -30,11 +31,14 @@ public class GenerateXMLDriver {
 	public static void generateChannelXML(Element channelElement, String topicName, List<String> topicTutorials, String tag) {
 		Element topicElement = new Element("rendering");
 		channelElement.addContent(topicElement);
+		
+		Comment comment = new Comment("Document id");
+		topicElement.addContent(comment);
 			
 		Element nameElement = new Element("document");
 		nameElement.addContent(topicName);
 		topicElement.addContent(nameElement);
-		
+
 		//LOOP
 		int i = 0;
 		while (i < topicTutorials.size()) {

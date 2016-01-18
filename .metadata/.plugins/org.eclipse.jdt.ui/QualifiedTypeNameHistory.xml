@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="io.bytes.reader.ReadFileBytes"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="parser.jdom2.GenerateXMLDriver"/>
+<fullyQualifiedTypeName name="io.regex.RegExSearch"/>
+<fullyQualifiedTypeName name="io.bytes.writer.WriteFileBytes"/>
+<fullyQualifiedTypeName name="org.jdom2.Comment"/>
+</qualifiedTypeNameHistroy>
