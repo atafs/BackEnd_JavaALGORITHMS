@@ -21,7 +21,7 @@ public class Main {
 		writer.writeFileXML(GenerateXMLDriver.generateChannelXML(RegExSearch.getTimes(), RegExSearch.getUid(), "uid", "start"));
 		
 		//SUCCESS
-		System.err.println("ENDED WITH SUCCESS!!");	
+		System.err.println("ENDED WITH SUCCESS!!");
 	}
 
 }
