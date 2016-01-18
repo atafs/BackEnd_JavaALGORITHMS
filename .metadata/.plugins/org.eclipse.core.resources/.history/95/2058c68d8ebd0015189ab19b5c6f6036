@@ -1,0 +1,46 @@
+package io.bytes.reader;
+
+import io.regex.RegExSearch;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ReadFileBytes {
+
+	//ATRIBUTES
+	private final String START_RENDERING = "startRendering";
+	private RegExSearch regex;
+	
+	//MAIN
+	public void readFile(String pathLog) {
+		//CREATE FILE (path of it)
+		File path = new File(pathLog);
+		
+		try {
+			//IN: READER
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(path)));
+			
+			// DATA
+			String line = reader.readLine();
+			while (line != null) {
+				
+				//REGEX SEARCH
+				RegExSearch regex = new RegExSearch();
+				regex.searchIdAndTime(START_RENDERING, line);
+				
+				line = reader.readLine();
+			}
+			//CLOSE
+			reader.close();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

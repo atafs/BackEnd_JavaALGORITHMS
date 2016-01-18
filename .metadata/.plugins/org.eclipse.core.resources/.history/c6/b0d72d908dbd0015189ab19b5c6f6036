@@ -1,0 +1,26 @@
+package main;
+
+import io.bytes.reader.ReadFileBytes;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//PATH OF LOG
+		String path = "log//server.log";
+		
+		//READER
+		ReadFileBytes reader = new ReadFileBytes();
+		reader.readFile(path);
+		
+		//PRINT TO XML
+		GenerateXMLDriver xmlReport = new GenerateXMLDriver();
+		
+		//SUCCESS
+		System.err.println("ENDED WITH SUCCESS!!");
+		
+		
+
+	}
+
+}

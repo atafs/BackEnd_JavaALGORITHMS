@@ -1,0 +1,27 @@
+package main;
+
+import parser.jdom2.GenerateXMLDriver;
+import io.bytes.reader.ReadFileBytes;
+import io.bytes.writer.WriteFileBytes;
+import io.regex.RegExSearch;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//PATH OF LOG
+		String path = "log//server.log";
+		
+		//READER
+		ReadFileBytes reader = new ReadFileBytes();
+		reader.readFile(path);
+		
+		//WRITER
+		WriteFileBytes writer = new WriteFileBytes();
+		writer.writeFileXML(GenerateXMLDriver.generateChannelXML(RegExSearch.getTimes(), RegExSearch.getUid(), "uid", "start"));
+		
+		//SUCCESS
+		System.err.println("ENDED WITH SUCCESS!!");
+	}
+
+}

@@ -1,0 +1,15 @@
+package main;
+
+import io.bytes.reader.ReadFileBytes;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//READER
+		ReadFileBytes reader = new ReadFileBytes();
+		reader.readFile();
+
+	}
+
+}

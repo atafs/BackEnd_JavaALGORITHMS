@@ -1,58 +1,45 @@
 package parser.jdom2;
 
+import java.util.List;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
 public class GenerateXMLDriver {
-	
-	//ATTRIBUTES
-	private static String[][] tutorials = {
-		{"Abstract Factory", "Factory Method"},
-		{"Point to Point", "Publish / Subscribe"}
-	};
-	
-	//MAIN
-	public static void main(String[] args) {
-		System.out.println(GenerateXMLDriver.generateChannelXML());
-	}
-	
+		
 	/** STATIC FUNCTION: */
-	public static String generateChannelXML() {
+	public static String generateChannelXML(List<String> times, List<String> uid, String uidString, String startString) {
 		//DOCUMENT
 		Document document = new Document();
 		
 		//ELEMENTS
-		Element channelElement = new Element("channel");
+		Element channelElement = new Element("report");
 		document.setRootElement(channelElement);
 		
-		Element nameElement = new Element("name");
-		nameElement.addContent("AmericoTomasLIB");
-		channelElement.addContent(nameElement);
-		
 		//GENERATE
-		generateChannelXML(channelElement, "Object Oriented Design Pattern", tutorials[0]);
-		generateChannelXML(channelElement, "Java Message Service", tutorials[1]);
+		generateChannelXML(channelElement, "//still to implement1", uid, uidString);
+		generateChannelXML(channelElement, "//still to implement2", times, startString);
 
 		//RETURN
 		return (new XMLOutputter(Format.getPrettyFormat())).outputString(document);
 	}
 	
 	/** STATIC PROCEDURE: */
-	public static void generateChannelXML(Element channelElement, String topicName, String[] topicTutorials) {
-		Element topicElement = new Element("topic");
+	public static void generateChannelXML(Element channelElement, String topicName, List<String> topicTutorials, String tag) {
+		Element topicElement = new Element("rendering");
 		channelElement.addContent(topicElement);
-		
-		Element nameElement = new Element("name");
+			
+		Element nameElement = new Element("document");
 		nameElement.addContent(topicName);
 		topicElement.addContent(nameElement);
 		
 		//LOOP
 		int i = 0;
-		while (i < topicTutorials.length) {
-			nameElement = new Element("tutorial");
-			nameElement.addContent(topicTutorials[i++]);
+		while (i < topicTutorials.size()) {
+			nameElement = new Element(tag);
+			nameElement.addContent(topicTutorials.get(i++));
 			topicElement.addContent(nameElement);
 		}
 	}

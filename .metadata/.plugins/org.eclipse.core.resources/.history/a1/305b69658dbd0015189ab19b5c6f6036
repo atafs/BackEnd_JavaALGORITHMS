@@ -1,0 +1,110 @@
+package io.regex;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class RegExSearch {
+	
+	//ATTRIBUTES
+	private static List<String> times = new ArrayList<String>();
+	private static List<String> uid = new ArrayList<String>();
+
+	/** SEARCH: When was a startRendering command started, and for which document id? */
+	public void searchIdAndTime(String startRendering, String search) {
+		regexChecker(startRendering, search);
+	}
+	
+	/** STATIC PROCEDURE: allow the user to search for a specific string of values */
+	public static void regexChecker(String theRegEx, String str2check) {
+		//STRING
+		String foundMatch = "";
+		
+		//API PATTERN and MATCHER class
+		Pattern checkRegex = Pattern.compile(theRegEx);
+		Matcher regexMatcher = checkRegex.matcher(str2check);
+		
+		//LOOP
+		while (regexMatcher.find()) {
+			//CONDITION: check if the string has a length
+			if (regexMatcher.group().length() != 0) {
+				//PRINT
+				System.out.println();
+				foundMatch = regexMatcher.group().trim() + " "; 
+				
+				//SEARCH TIME
+				foundMatch = regexCheckerTime(str2check, foundMatch);
+				
+				//SEARCH UID
+				foundMatch = regexCheckerUID(str2check, foundMatch);
+				
+				//PRINT
+				System.out.println(foundMatch);
+			}
+		}
+	}
+	
+	/** */
+	public static String regexCheckerTime(String str2extract, String foundMatch) {
+		//API PATTERN and MATCHER class
+		Pattern checkRegex = Pattern.compile("[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}");
+		Matcher regexMatcher = checkRegex.matcher(str2extract);
+		
+		//LOOP
+		while (regexMatcher.find()) {
+			//CONDITION: check if the string has a length
+			if (regexMatcher.group().length() != 0) {
+				//PRINT
+				times.add(regexMatcher.group().trim());
+				foundMatch += regexMatcher.group().trim() + " ";
+				return foundMatch;
+			}
+		}
+		return foundMatch;
+	}
+	
+	/** */
+	public static String regexCheckerUID(String str2extract, String foundMatch) {
+		//API PATTERN and MATCHER class
+		Pattern checkRegex = Pattern.compile("[0-9]{13}-[0-9]{4}");
+		Matcher regexMatcher = checkRegex.matcher(str2extract);
+		
+		//LOOP
+		while (regexMatcher.find()) {
+			//CONDITION: check if the string has a length
+			if (regexMatcher.group().length() != 0) {
+				//PRINT
+				foundMatch += regexMatcher.group().trim() + " ";
+				return foundMatch;
+			}
+		}
+		return foundMatch;
+	}
+	
+	/** STATIC PROCEDURE: replace all spaces (\\s) with comma and spaces (, ) */
+	public static void regexReplace(String str2replace) {
+		//API PATTERN class
+		Pattern replace = Pattern.compile("\\s+");
+		
+		//API MATCHER class
+		Matcher regexMatcher = replace.matcher(str2replace.trim());
+		
+		//PRINT
+		System.out.println();
+		System.out.println("Void Method: " + regexMatcher.replaceAll(", "));
+	}
+	
+	/** STATIC FUNCTION: replace all spaces (\\s) with comma and spaces (, ) and returns a String */
+	public static String regexReplaceReturnString(String str2replace) {
+		//API PATTERN class
+		Pattern replace = Pattern.compile("\\s+");
+		
+		//API MATCHER class
+		Matcher regexMatcher = replace.matcher(str2replace.trim());
+		
+		//RETURN
+		return regexMatcher.replaceAll(", ");
+	}
+}
